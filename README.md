@@ -37,7 +37,7 @@ SpellingAlphabet::Japanese.interpret("朝日のア いろはのイ 上野のウ"
 Run the tests in spec directory:
 
 ```
-$ cd keybreak
+$ cd spelling_alphabet
 $ rake spec
 ```
 
