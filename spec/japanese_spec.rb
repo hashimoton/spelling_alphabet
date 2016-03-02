@@ -43,7 +43,7 @@ describe SpellingAlphabet do
       expect(SpellingAlphabet::Japanese.spellout("   ")).to eq("")
     end
     
-    it 'converts code words to the original letters' do
+    it 'converts words to the original letters' do
       expect(SpellingAlphabet::Japanese.interpret(
         "朝日のア いろはのイ 上野のウ 数字のきゆう")).to eq("アイウ9")
       expect(SpellingAlphabet::Japanese.interpret("X-ray Yankee Zulu")).to eq("XYZ")

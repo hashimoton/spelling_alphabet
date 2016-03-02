@@ -25,7 +25,7 @@ describe SpellingAlphabet do
       expect(SpellingAlphabet::ITU.spellout("   ")).to eq("")
     end
     
-    it 'converts code words to the original letters' do
+    it 'converts words to the original letters' do
       expect(SpellingAlphabet::ITU.interpret("Yankee Zulu Nadazero")).to eq("YZ0")
     end
     

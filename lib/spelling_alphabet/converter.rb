@@ -2,22 +2,22 @@
 
 module SpellingAlphabet
 
-  # Text converter which holds the given code set (conversion table).
+  # Text converter which holds the given word set (conversion table).
   class Converter
 
     # Generates an instance.
-    def initialize(code_set = SpellingAlphabet::ITU)
-      @code_set = code_set
+    def initialize(word_set = SpellingAlphabet::ITU)
+      @word_set = word_set
     end
     
-    # Converts each letter to the corresponding word
+    # Converts each letter to the corresponding word.
     def spellout(text)
-      @code_set.spellout(text)
+      @word_set.spellout(text)
     end
     
-    # Converts each word to the original letter
+    # Converts each word to the original letter.
     def interpret(text)
-      @code_set.interpret(text)
+      @word_set.interpret(text)
     end
     
   end # class

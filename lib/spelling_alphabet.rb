@@ -6,7 +6,7 @@ require "spelling_alphabet/icao"
 require "spelling_alphabet/japanese"
 require "spelling_alphabet/converter"
 
-# Namespace for spelling alphabet converter and code sets
+# Namespace for spelling alphabet converter and word sets
 module SpellingAlphabet
 end
 

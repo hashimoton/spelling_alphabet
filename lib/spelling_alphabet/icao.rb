@@ -2,7 +2,7 @@
 
 module SpellingAlphabet
 
-  # Code set for ICAO Radiotelephony Alphabet.
+  # Word set for ICAO Radiotelephony Alphabet.
   # http://www.icao.int/Pages/AlphabetRadiotelephony.aspx
   class ICAO
   
@@ -38,12 +38,12 @@ EOD
     LETTER_WORD = WORD_TABLE.split("\n").map {|r| r.split("\t")}.to_h
     WORD_LETTER = LETTER_WORD.invert
     
-    # Converts each letter to the corresponding word
+    # Converts each letter to the corresponding word.
     def self.spellout(text)
       text.delete(" ").chars.map {|c| LETTER_WORD.fetch(c.upcase, c)}.join(" ")
     end
     
-    # Converts each word to the original letter
+    # Converts each word to the original letter.
     def self.interpret(text)
       text.split(" ").map {|w| WORD_LETTER.fetch(w, w)}.join("")
     end

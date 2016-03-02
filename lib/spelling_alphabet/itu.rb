@@ -2,7 +2,7 @@
 
 module SpellingAlphabet
 
-  # Code set for ITU Phonetic Alphabet and Figure Code.
+  # Word set for ITU Phonetic Alphabet and Figure Code.
   # http://life.itu.int/radioclub/rr/ap14.htm
   class ITU
   
@@ -48,12 +48,12 @@ EOD
     LETTER_WORD = WORD_TABLE.split("\n").map {|r| r.split("\t")}.to_h
     WORD_LETTER = LETTER_WORD.invert
 
-    # Converts each letter to the corresponding word
+    # Converts each letter to the corresponding word.
     def self.spellout(text)
       text.delete(" ").chars.map {|c| LETTER_WORD.fetch(c.upcase, c)}.join(" ")
     end
     
-    # Converts each word to the original letter
+    # Converts each word to the original letter.
     def self.interpret(text)
       text.split(" ").map {|w| WORD_LETTER.fetch(w, w)}.join("")
     end

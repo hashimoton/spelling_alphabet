@@ -2,12 +2,12 @@
 
 module SpellingAlphabet
 
-  # Code set for Japanese radiotelephony alphabet.
+  # Word set for Japanese radiotelephony alphabet.
   # based on:
-  # 無線局運用規則
-  # 別表第五号 通話表（第１４条関係）
-  # 1.和文通話表 ＋ 2.欧文通話表(数字は和文通話表)
-  # http://law.e-gov.go.jp/htmldata/S25/S25F30901000017.html
+  #   無線局運用規則
+  #   別表第五号 通話表（第１４条関係）
+  #   1.和文通話表 ＋ 2.欧文通話表(数字は和文通話表)
+  #   http://law.e-gov.go.jp/htmldata/S25/S25F30901000017.html
   class Japanese
   
     WORD_TABLE =<<EOD
@@ -138,14 +138,14 @@ EOD
       end
     end
     
-    # Converts each letter to the corresponding word
+    # Converts each letter to the corresponding word.
     def self.spellout(text)
       text.delete(" ").chars.map do |c|
         LETTER_WORD.fetch(self.normalize(c), c)
       end.join(" ")
     end
     
-    # Converts each word to the original letter
+    # Converts each word to the original letter.
     def self.interpret(text)
       text.split(" ").map {|w| WORD_LETTER.fetch(w, w)}.join("")
     end

@@ -21,7 +21,7 @@ describe SpellingAlphabet do
       expect(SpellingAlphabet::ICAO.spellout("   ")).to eq("")
     end
     
-    it 'converts code words to the original letters' do
+    it 'converts words to the original letters' do
       expect(SpellingAlphabet::ICAO.interpret("X-ray Yankee Zulu")).to eq("XYZ")
     end
     
