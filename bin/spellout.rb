@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+# Usage: spellout [options] WORD
+# Convert WORD to a sequence of spelling alphabet (phonetic alphabet)
+# 
+# Options:
+#   -w WORD_SET  Speify the word set for conversion (default: ITU)
+#   -i           Interpret WORD instead of spellingout
+#
+# Supported word sets:
+#   ITU       ITU Phonetic Alphabet and Figure Code
+#   ICAO      ICAO Radiotelephony Alphabet
+#   Japanese  Japanese radiotelephony alphabet (encoding is UTF-8 only)
+
+
+require "spelling_alphabet"
+require "optparse"
+
+WORD_SETS =
+{
+  "ITU" =>  SpellingAlphabet::ITU,
+  "ICAO" =>  SpellingAlphabet::ICAO,
+  "Japanese" => SpellingAlphabet::Japanese
+}
+
+OPTS = {}
+
+OptionParser.new do |opt|
+  begin
+    opt.version = '0.1.0'
+    opt.banner += " WORDS"
+    opt.banner += "\nConvert WORDS to a sequence of spelling alphabet (phonetic alphabet)\n"
+    opt.banner += "\nOptions:"
+    opt.on('-w=WORD_SET', '--word-set', 'Speify the word set for conversion (default: ITU)') {|v| OPTS[:w] = v}
+    opt.on('-i', '--interpret', 'Interpret WORDS instead of spellingout') {|v| OPTS[:i] = v}
+    opt.on("\nSupported word sets:")
+    opt.on("   ITU       ITU Phonetic Alphabet and Figure Code")
+    opt.on("   ICAO      ICAO Radiotelephony Alphabet")
+    opt.on("   Japanese  Japanese radiotelephony alphabet (encoding is UTF-8 only)")
+
+    opt.parse!(ARGV)
+  rescue => e
+    $stderr.puts "ERROR: #{e}.\n#{opt}"
+    exit 1
+  end
+end
+
+
+word = ARGV.join(" ").encode("utf-8")
+word_set = WORD_SETS.fetch(OPTS[:w], SpellingAlphabet::ITU)
+
+converter = SpellingAlphabet::Converter.new(word_set)
+spelled = ""
+
+if OPTS[:i]
+  spelled = converter.interpret(word)
+else
+  spelled = converter.spellout(word)
+end
+
+puts spelled
+
+
+exit 0
+
+# EOF

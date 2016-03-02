@@ -23,7 +23,7 @@ SpellingAlphabet::ITU.spellout("ABC") #=> "Alfa Bravo Charlie"
 SpellingAlphabet::Japanese.spellout("イロハ") #=> "いろはのイ ローマのロ はがきのハ"
 ```
 
-## Words to letters
+### Words to letters
 
 ```ruby
 SpellingAlphabet::ITU.interpret("Yankee Zulu Nadazero")).to eq("YZ0")
@@ -43,9 +43,7 @@ $ rake spec
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/hashimoton/spelling_alphabet. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-
+Bug reports and pull requests are welcome on GitHub at https://github.com/hashimoton/spelling_alphabet.
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
