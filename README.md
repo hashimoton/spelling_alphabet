@@ -61,7 +61,7 @@ Options:
 Supported word sets:
    ITU       ITU Phonetic Alphabet and Figure Code
    ICAO      ICAO Radiotelephony Alphabet
-   Japanese  Japanese radiotelephony alphabet (encoding is UTF-8 only)
+   Japanese  Japanese radiotelephony alphabet (requires UTF-8 environment)
 ```
 
 Here are some examples:

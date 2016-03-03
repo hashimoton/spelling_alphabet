@@ -9,7 +9,7 @@
 # Supported word sets:
 #   ITU       ITU Phonetic Alphabet and Figure Code
 #   ICAO      ICAO Radiotelephony Alphabet
-#   Japanese  Japanese radiotelephony alphabet (encoding is UTF-8 only)
+#   Japanese  Japanese radiotelephony alphabet (requires UTF-8 environment)
 
 
 require "spelling_alphabet"
@@ -35,7 +35,7 @@ OptionParser.new do |opt|
     opt.on("\nSupported word sets:")
     opt.on("   ITU       ITU Phonetic Alphabet and Figure Code")
     opt.on("   ICAO      ICAO Radiotelephony Alphabet")
-    opt.on("   Japanese  Japanese radiotelephony alphabet (encoding is UTF-8 only)")
+    opt.on("   Japanese  Japanese radiotelephony alphabet (requires UTF-8 environment)")
 
     opt.parse!(ARGV)
   rescue => e
